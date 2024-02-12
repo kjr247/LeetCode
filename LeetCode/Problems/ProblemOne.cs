@@ -37,7 +37,7 @@ namespace LeetCode.Problems
         // a hashmap can get rid of the case of duplicates
         // and you know which number you are looking for based on the information you have in each try
         // you have an entry and the target, so just attempt to pick out the difference as a key
-        // time: O(n) space: O(n)
+        // time: O(n) for the loop space: O(n) depending on the size of the input
         public static int[] TwoSum(int[] nums, int target)
         {
             int[] results = [];
@@ -51,11 +51,14 @@ namespace LeetCode.Problems
                 // check to see if we've seen that value before
                 if (hashtable.Contains(val))
                 {
-                    if (idx == (int)hashtable[val]) { continue; } // skip if the same index, that doesn't count
+                    if (idx == (int)hashtable[val]) { continue; } // skip if the same index
                     return [(int)hashtable[val], idx];
                 }
                 // if not then throw our num in the map
-                hashtable.Add(num, idx);
+                if (!hashtable.ContainsKey(num))
+                {
+                    hashtable.Add(num, idx);
+                }
                 idx++;
             }
             return results;

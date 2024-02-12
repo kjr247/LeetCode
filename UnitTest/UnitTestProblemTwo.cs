@@ -29,5 +29,22 @@ namespace UnitTest
             var result = ProblemTwo.IsPalindrome(num);
             Assert.AreEqual(false, result);
         }
+
+
+        [TestMethod]
+        public void TestMethod4()
+        {
+            int num = 11;
+            var result = ProblemTwo.IsPalindrome(num);
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestMethod5()
+        {
+            int num = 1001;
+            var result = ProblemTwo.IsPalindrome(num);
+            Assert.AreEqual(true, result);
+        }
     }
 }

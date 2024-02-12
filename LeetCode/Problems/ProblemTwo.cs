@@ -4,49 +4,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LeetCode.Problems
 {
     public class ProblemTwo
     {
         // Time: O(n) for Array.reverse and Space: O(1) as it doesn't require any additional memory
-        //    public static bool IsPalindrome(int x)
+        //public static bool IsPalindrome(int x)
+        //{
+        //    if (x < 0 || (x != 0 && x % 10 == 0))
         //    {
-        //        var results = false;
-        //        var backwards = Reverse(x.ToString());
-        //        results = backwards == x.ToString();
-        //        return results;
+        //        return false;
         //    }
 
-        //    public static string Reverse(string s)
+        //    var str = x.ToString();
+        //    char[] charArray = str.ToCharArray();
+        //    var len = str.Length;
+        //    if (len % 2 == 0)
         //    {
-        //        char[] charArray = s.ToCharArray();
-        //        Array.Reverse(charArray);
-        //        return new string(charArray);
+        //        var add = len == 2 ? 1 : 0;
+        //        char[] part1 = charArray.Take((len/2) - add).ToArray();
+        //        char[] part2 = charArray.Skip((len/2) - add).Take(len / 2 - add).ToArray();
+        //        Array.Reverse(part1);
+        //        return new string(part1) == new string(part2);
         //    }
+        //    else
+        //    {
+        //        Array.Reverse(charArray);
+        //    }
+            
+        //    return new string(charArray) == x.ToString();
+        //}
+
 
         // Follow up: Could you solve it without converting the integer to a string?
 
         // Space: O(n) for the while loop and Space: nearly O(1), the calculation produces smaller results as it runs
         public static bool IsPalindrome(int x)
         {
-            var results = false;
-            // First thoughts - check the math? Since this is a number and not a string, you should be able to use an equation?
-            results = checkPalindrome(x);
-            return results;
-        }
-
-        static bool checkPalindrome(int n)
-        {
-            if (n != Math.Abs(n)) { return false; }
-            int reverse = 0;
-            int temp = n;
-            while (temp != 0)
+            if (x < 0 || (x != 0 && x % 10 == 0))
             {
-                reverse = (reverse * 10) + (temp % 10);
-                temp = temp / 10;
+                return false;
             }
-            return ( reverse == n );
+            int reversed = 0;
+            while (x > reversed)
+            {
+                reversed = reversed * 10 + x % 10;
+                x /= 10;
+            }
+            return (x == reversed) || (x == reversed / 10);
         }
     }
 }
