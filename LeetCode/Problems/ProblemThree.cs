@@ -30,7 +30,7 @@ namespace LeetCode.Problems
 {
     public class ProblemThree
     {
-        // O(1)
+        // O(1) but it's possible to do this without putting this into memory and instead add a switch case with else if statements with a lookahead algorithm
         public readonly Dictionary<char, int> RomanNumeralsMap = new Dictionary<char, int>
         {
             {'I', 1},
