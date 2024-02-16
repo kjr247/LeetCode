@@ -25,84 +25,42 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 //    C can be placed before D (500) and M (1000) to make 400 and 900.
 //    Given a roman numeral, convert it to an integer.
 
+// O(n) on run time and O(1) on constant storage complexity
 namespace LeetCode.Problems
 {
     public class ProblemThree
     {
-        public static int RomanToInt(string s)
+        // O(1)
+        public readonly Dictionary<char, int> RomanNumeralsMap = new Dictionary<char, int>
         {
-            var charArray = s.ToCharArray();
-            var index = 0;
-            foreach (var cha in charArray)
-            {
-                index++;
-                
-                //switch (new string(cha + s[index]))
-                //{
-                //    case 'IV':
-                //    {
-                //        return 10;
-                //            break;
-                //        }
-                //    case 'X':
-                //        {
-                //            break;
-                //        }
-                //    case 'L':
-                //        {
-                //            break;
-                //        }
-                //    case 'C':
-                //        {
-                //            break;
-                //        }
-                //    case 'D':
-                //        {
-                //            break;
-                //        }
-                //    case 'M':
-                //        {
-                //            break;
-                //        }
-                //    default:
-                //        {
-                //            return 1;
-                //        }
-                //}
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}
+        };
 
-                //switch (cha + charArray[index])
-                //{
-                //    case 'V':
-                //    {
-                //        break;
-                //    }
-                //    case 'X':
-                //    {
-                //        break;
-                //    }
-                //    case 'L':
-                //    {
-                //        break;
-                //    }
-                //    case 'C':
-                //    {
-                //        break;
-                //    }
-                //    case 'D':
-                //    {
-                //        break;
-                //    }
-                //    case 'M':
-                //    {
-                //        break;
-                //    }
-                //    default:
-                //    {
-                //        return 1;
-                //    }
-                //}
+        // O(n) linear because this runs a loop through one time based on the size of the input growing linearly with the size of input
+        public int RomanToInt(string s)
+        {
+            var result = 0;
+            var prevValue = 0;
+
+            foreach (var c in s)
+            {
+                int val = RomanNumeralsMap[c];
+                result += val;
+
+                if (prevValue < val)
+                {
+                    result -= 2 * prevValue;
+                }
+
+                prevValue = val;
             }
-            return 1;
+            return result;
         }
     }
 }
