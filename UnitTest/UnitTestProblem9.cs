@@ -4,13 +4,13 @@ using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTestProblemTwo
+    public class UnitTestProblem9
     {
         [TestMethod]
         public void TestMethod1()
         {
             int num = 121;
-            var result = ProblemTwo.IsPalindrome(num);
+            var result = Problem9.IsPalindrome(num);
             Assert.AreEqual(true, result);
         }
 
@@ -18,7 +18,7 @@ namespace UnitTest
         public void TestMethod2()
         {
             int num = -121;
-            var result = ProblemTwo.IsPalindrome(num);
+            var result = Problem9.IsPalindrome(num);
             Assert.AreEqual(false, result);
         }
 
@@ -26,7 +26,7 @@ namespace UnitTest
         public void TestMethod3()
         {
             int num = 10;
-            var result = ProblemTwo.IsPalindrome(num);
+            var result = Problem9.IsPalindrome(num);
             Assert.AreEqual(false, result);
         }
 
@@ -35,7 +35,7 @@ namespace UnitTest
         public void TestMethod4()
         {
             int num = 11;
-            var result = ProblemTwo.IsPalindrome(num);
+            var result = Problem9.IsPalindrome(num);
             Assert.AreEqual(true, result);
         }
 
@@ -43,7 +43,7 @@ namespace UnitTest
         public void TestMethod5()
         {
             int num = 1001;
-            var result = ProblemTwo.IsPalindrome(num);
+            var result = Problem9.IsPalindrome(num);
             Assert.AreEqual(true, result);
         }
     }

@@ -8,7 +8,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LeetCode.Problems
 {
-    public class ProblemTwo
+    public class Problem9
     {
         // Time: O(n) for Array.reverse and Space: O(1) as it doesn't require any additional memory
         //public static bool IsPalindrome(int x)

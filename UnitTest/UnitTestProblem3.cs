@@ -4,13 +4,13 @@ using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 namespace UnitTest
 {
     [TestClass]
-    public class UnitTestProblemThree
+    public class UnitTestProblem3
     {
         [TestMethod]
         public void TestMethod1()
         {
             string str = "III";
-            var result = ProblemThree.RomanToInt(str);
+            var result = Problem3.RomanToInt(str);
             Assert.AreEqual(3, result);
         }
 
@@ -18,7 +18,7 @@ namespace UnitTest
         public void TestMethod2()
         {
             string str = "LVIII";
-            var result = ProblemThree.RomanToInt(str);
+            var result = Problem3.RomanToInt(str);
             Assert.AreEqual(58, result);
         }
 
@@ -26,7 +26,7 @@ namespace UnitTest
         public void TestMethod3()
         {
             string str = "MCMXCIV";
-            var result = ProblemThree.RomanToInt(str);
+            var result = Problem3.RomanToInt(str);
             Assert.AreEqual(1994, result);
         }
 

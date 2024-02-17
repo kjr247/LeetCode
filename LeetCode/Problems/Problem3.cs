@@ -28,10 +28,10 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 // O(n) on run time and O(1) on constant storage complexity
 namespace LeetCode.Problems
 {
-    public class ProblemThree
+    public class Problem3
     {
         // O(1) but it's possible to do this without putting this into memory and instead add a switch case with else if statements with a lookahead algorithm
-        public readonly Dictionary<char, int> RomanNumeralsMap = new Dictionary<char, int>
+        public static readonly Dictionary<char, int> RomanNumeralsMap = new Dictionary<char, int>
         {
             {'I', 1},
             {'V', 5},
@@ -43,7 +43,7 @@ namespace LeetCode.Problems
         };
 
         // O(n) linear because this runs a loop through one time based on the size of the input growing linearly with the size of input
-        public int RomanToInt(string s)
+        public static int RomanToInt(string s)
         {
             var result = 0;
             var prevValue = 0;

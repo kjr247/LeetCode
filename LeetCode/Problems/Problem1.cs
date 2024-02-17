@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LeetCode.Problems
 {
-    public class ProblemOne
+    public class Problem1
     {
         // simple first attempt
         // time: O(nsqrd) space: O(1)
