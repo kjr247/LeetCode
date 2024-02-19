@@ -37,7 +37,13 @@ using System.Threading.Tasks;
  * String manipulation is a performance bottleneck for many programs. Allocating many small, short-lived strings on a hot path can create enough collection pressure to impact performance. 
  * The O(n) copies created by Substring become relevant when the substrings get large. The Span<T> and ReadOnlySpan<T> types were created to solve these performance problems.
  * */
-
+/**
+ * In the best case the array is already sorted and we can begin with just using the shortest string, because that will be the limitation on the largest common prefix.
+ * 
+ * also sorting alphebetically, you can easily force the like texts into groups.
+ * 
+ * For the sake of the ability to read the code by a larger group, Regex was not used.
+ */
 namespace LeetCode.Problems
 {
     public class Problem14
@@ -47,36 +53,38 @@ namespace LeetCode.Problems
             if (strs.Length == 1) { return strs[0]; }
             if (strs[0].Length == 0) { return ""; }
             var results = "";
-            var iWord = 0;
-            var iLetter = 1;
+            var match = "";
 
-            foreach (char letter in strs[0])
+            for (int i = 0; i < strs[0].Length; i++)
             {
-                iWord = 0;
-                foreach (string word in strs)
-                {
-                    if (iWord == 0) { iWord++; continue; }
 
-                    if (word.StartsWith(strs[0].Substring(0, iLetter), false, CultureInfo.InvariantCulture))
+                match += strs[0][i];
+                for (int jWord = 0; jWord < strs.Length; jWord++)
+                {
+                    if (jWord == 0) { continue; }
+
+                    if (strs[jWord].StartsWith(match, false, CultureInfo.InvariantCulture))
                     {
-                        if (iWord >= strs.Length - 1)
+                        if (jWord >= strs.Length - 1)
                         {
-                            results = strs[0].Substring(0, iLetter);
-                            if (iLetter >= strs[0].Length) { return results; }
+                            results = match;
+                            if (i >= strs[0].Length) { return results; }
                         }
                     }
                     else
                     {
                         break;
                     }
-                    iWord++;
                 }
-                iLetter++;
             }
             return results;
         }
     }
 }
 
-
+/**
+ * Lessons learned, for loop is 2 times cheaper than foreach
+ * looping an array is 2 times cheaper than looping foreach on a list.
+ * looping arrays on for loop is roughly 5 times cheaper than looping a list on a foreach
+ */
 
