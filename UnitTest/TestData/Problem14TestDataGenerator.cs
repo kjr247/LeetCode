@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace UnitTest.TestData
 {
+    /// <summary>
+    ///  for running unit tests... There is a different class of the same name for running benchmark tests. It will generate more stable, not random data.
+    /// </summary>
     public class Problem14TestDataGenerator
     {
 
@@ -41,6 +44,7 @@ namespace UnitTest.TestData
 
             var fak = new Faker();
 
+            // Generated data is great for run until failure feature of VS to discover edge cases
             StringsRecordFake = new Faker<StringsFake>()
                 .RuleFor(o => o.AllStrings, f => Enumerable.Range(1, 200)
                     .Select(_ => fak.PickRandom(strs)).ToArray());
