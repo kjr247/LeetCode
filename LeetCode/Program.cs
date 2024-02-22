@@ -8,7 +8,7 @@ namespace LeetCode
         static void Main(string[] args)
         {
             Console.WriteLine("Begin");
-            var summary = BenchmarkRunner.Run<Problem14>();
+            var summary = BenchmarkRunner.Run<Problem20>();
             Console.ReadLine();
         }
     }

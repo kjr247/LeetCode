@@ -139,6 +139,8 @@ To get a local copy up and running follow these simple example steps.
 - [x] Add Unit Tests
 - [x] Add benchmarks
 - [ ] Add MethodTimer.Fody
+- [ ] Add Profiling optimizations
+- [ ] Run benchmarks or performance tests from unit tests?
 - [ ] Multi-language Support
     - [ ] Chinese
 
