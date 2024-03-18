@@ -138,7 +138,8 @@ To get a local copy up and running follow these simple example steps.
 - [x] Add back to top links
 - [x] Add Unit Tests
 - [x] Add benchmarks
-- [ ] Add MethodTimer.Fody
+- [X] Add MethodTimer.Fody
+- [X] Add MethodTimer.Fody to unit tests?
 - [ ] Add Profiling optimizations
 - [ ] Run benchmarks or performance tests from unit tests?
 - [ ] Multi-language Support

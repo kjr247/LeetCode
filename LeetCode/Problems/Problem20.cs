@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using LeetCode.TestData;
 using BenchmarkDotNet.Engines;
+using MethodTimer;
+using MethodMeasure;
+using Microsoft.Extensions.Logging;
 
 /* Problem 20. Valid Parentheses
 Easy
@@ -43,14 +46,12 @@ Constraints:
 stringValueInput consists of parentheses only '()[]{}'.
 */
 
-
 /* 
  * Notes on Optimizations
  * 
  * */
 namespace LeetCode.Problems
 {
-
     //[MemoryDiagnoser(true)]
     //[SimpleJob(RunStrategy.Throughput, launchCount: 4, warmupCount: 4, iterationCount: 40)]
     /*
@@ -61,7 +62,9 @@ namespace LeetCode.Problems
         // Setup for benchmark testing with data
         public Problem20()
         {
-
+            using ILoggerFactory factory = LoggerFactory.Create(builder => builder.AddConsole());
+            ILogger logger = factory.CreateLogger("Program");
+            MethodTimeLogger.Logger = logger;
         }
 
         /* Original Solution - no optimizations */
@@ -70,6 +73,7 @@ namespace LeetCode.Problems
         /* Time Complexity: O(n) on the for loop */
         /* Space Complexity: O(n) increases linearly with the size of the input */
         /* Observations: the space is likely high because of all of the tostring calls. */
+        [Time("File name: '{stringValueInput}'")]
         public bool IsValid(string stringValueInput)
         {
             if (stringValueInput.Length % 2 != 0) { return false; } // if the string is odd size, then it is always false
@@ -80,9 +84,9 @@ namespace LeetCode.Problems
                 { "}", "{" },
                 { ")", "(" }
             };
-            var result = false;
+            const Boolean result = false;
             var stacker = new Stack<string>();
-            
+
             for (int i = 0; i < stringValueInput.Length; i++)
             {
                 // check if the target is in our beginnings beginningValues
@@ -97,23 +101,22 @@ namespace LeetCode.Problems
                     if (stacker.Count > 0 && stacker.Peek() == beginning)
                     {
                         stacker.Pop();
-                    } 
+                    }
                     else
                     {
                         return false;
                     }
                 }
             }
-            if (stacker.Count == 0) { 
-                return true; 
+            if (stacker.Count == 0) {
+                return true;
             }
             return result;
         }
 
-
         public bool IsValid2(string stringValueInput)
         {
-            if (stringValueInput.Length % 2 != 0) { return false; } // if the string is odd size, then it is always false
+            if (stringValueInput != null && stringValueInput.Length % 2 != 0) { return false; } // if the string is odd size, then it is always false
             var beginningValues = new List<string> { "[", "{", "(" };
             var dict = new Dictionary<string, string>()
             {
@@ -121,7 +124,7 @@ namespace LeetCode.Problems
                 { "}", "{" },
                 { ")", "(" }
             };
-            var result = false;
+            const Boolean result = false;
             var stacker = new Stack<string>();
 
             for (int i = 0; i < stringValueInput.Length; i++)

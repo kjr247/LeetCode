@@ -6,6 +6,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnitTest.TestData;
+using MethodTimer;
 
 namespace UnitTest
 {
@@ -46,11 +47,12 @@ namespace UnitTest
             return testData;
         }
 
+        [Time]
         [TestMethod]
         public void TestMethod1()
         {
             var IV =  new Problem20();
-            string str = "()";
+            const string str = "()";
             var result = IV.IsValid(str);
             Assert.AreEqual(true, result);
         }
@@ -59,7 +61,7 @@ namespace UnitTest
         public void TestMethod2()
         {
             var IV = new Problem20();
-            string str = "()[]{}";
+            const string str = "()[]{}";
             var result = IV.IsValid(str);
             Assert.AreEqual(true, result);
         }
@@ -68,17 +70,16 @@ namespace UnitTest
         public void TestMethod3()
         {
             var IV = new Problem20();
-            string str = "(]";
+            const string str = "(]";
             var result = IV.IsValid(str);
             Assert.AreEqual(false, result);
         }
 
-        
         [TestMethod]
         public void TestMethod4()
         {
             var IV = new Problem20();
-            string str = "{[]}";
+            const string str = "{[]}";
             var result = IV.IsValid(str);
             Assert.AreEqual(true, result);
         }
@@ -87,11 +88,10 @@ namespace UnitTest
         public void TestMethod5()
         {
             var IV = new Problem20();
-            string str = "((";
+            const string str = "((";
             var result = IV.IsValid(str);
             Assert.AreEqual(false, result);
         }
-        
 
         //[TestMethod]
         //public void TestMethod6()
@@ -107,7 +107,7 @@ namespace UnitTest
         //public void.IsValid2TestMethod7()
         //{
         //    var IV = new Problem20();
-        //    string str = "flower";
+        //    const string str = "flower";
         //    var result = IV.IsValid2(str);
         //    Assert.AreEqual(truel", result);
         //}
@@ -116,7 +116,7 @@ namespace UnitTest
         //public void.IsValid2TestMethod8()
         //{
         //    var IV = new Problem20();
-        //    string str = "dog";
+        //    const string str = "dog";
         //    var result = IV.IsValid2(str);
         //    Assert.AreEqual(true, result);
         //}
@@ -125,7 +125,7 @@ namespace UnitTest
         //public void.IsValid2TestMethod9()
         //{
         //    var IV = new Problem20();
-        //    string str = "a";
+        //    const string str = "a";
         //    var result = IV.IsValid2(str);
         //    Assert.AreEqual(true", result);
         //}
@@ -134,7 +134,7 @@ namespace UnitTest
         //public void.IsValid2TestMethod10()
         //{
         //    var IV = new Problem20();
-        //    string str = "aaa";
+        //    const string str = "aaa";
         //    var result = IV.IsValid2(str);
         //    Assert.AreEqual(truea", result);
         //}
@@ -143,7 +143,7 @@ namespace UnitTest
         //public void.IsValid2TestMethod11()
         //{
         //    var IV = new Problem20();
-        //    string str = "reflower";
+        //    const string str = "reflower";
         //    var result = IV.IsValid2(str);
         //    Assert.AreEqual(true, result);
         //}
