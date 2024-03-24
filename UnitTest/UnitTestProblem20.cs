@@ -47,115 +47,50 @@ namespace UnitTest
             return testData;
         }
 
-        [Time]
-        [TestMethod]
-        public void TestMethod1()
-        {
-            var IV =  new Problem20();
-            const string str = "()";
-            var result = IV.IsValid(str);
-            Assert.AreEqual(true, result);
-        }
-
-        [TestMethod]
-        public void TestMethod2()
-        {
-            var IV = new Problem20();
-            const string str = "()[]{}";
-            var result = IV.IsValid(str);
-            Assert.AreEqual(true, result);
-        }
-
-        [TestMethod]
-        public void TestMethod3()
-        {
-            var IV = new Problem20();
-            const string str = "(]";
-            var result = IV.IsValid(str);
-            Assert.AreEqual(false, result);
-        }
-
-        [TestMethod]
-        public void TestMethod4()
-        {
-            var IV = new Problem20();
-            const string str = "{[]}";
-            var result = IV.IsValid(str);
-            Assert.AreEqual(true, result);
-        }
-
-        [TestMethod]
-        public void TestMethod5()
-        {
-            var IV = new Problem20();
-            const string str = "((";
-            var result = IV.IsValid(str);
-            Assert.AreEqual(false, result);
-        }
-
+        //[Time]
         //[TestMethod]
-        //public void TestMethod6()
+        //public void TestMethod1()
         //{
-        //    var IV = new Problem20();
-        //    var TDGenerator = new UnitTest.TestData.Problem20TestDataGenerator();
-        //    var TestData = TDGenerator.GenerateArrayOfStrings(); // using this generated data, we can run it hundreds or thousands of times to discover edge cases.
-        //    var result = IV.IsValid(TestData.AllStrings);
+        //    var IV =  new Problem20();
+        //    const string str = "()";
+        //    var result = IV.IsValid(str);
         //    Assert.AreEqual(true, result);
         //}
 
         //[TestMethod]
-        //public void.IsValid2TestMethod7()
+        //public void TestMethod2()
         //{
         //    var IV = new Problem20();
-        //    const string str = "flower";
-        //    var result = IV.IsValid2(str);
-        //    Assert.AreEqual(truel", result);
-        //}
-
-        //[TestMethod]
-        //public void.IsValid2TestMethod8()
-        //{
-        //    var IV = new Problem20();
-        //    const string str = "dog";
-        //    var result = IV.IsValid2(str);
+        //    const string str = "()[]{}";
+        //    var result = IV.IsValid(str);
         //    Assert.AreEqual(true, result);
         //}
 
         //[TestMethod]
-        //public void.IsValid2TestMethod9()
+        //public void TestMethod3()
         //{
         //    var IV = new Problem20();
-        //    const string str = "a";
-        //    var result = IV.IsValid2(str);
-        //    Assert.AreEqual(true", result);
+        //    const string str = "(]";
+        //    var result = IV.IsValid(str);
+        //    Assert.AreEqual(false, result);
         //}
 
         //[TestMethod]
-        //public void.IsValid2TestMethod10()
+        //public void TestMethod4()
         //{
         //    var IV = new Problem20();
-        //    const string str = "aaa";
-        //    var result = IV.IsValid2(str);
-        //    Assert.AreEqual(truea", result);
-        //}
-
-        //[TestMethod]
-        //public void.IsValid2TestMethod11()
-        //{
-        //    var IV = new Problem20();
-        //    const string str = "reflower";
-        //    var result = IV.IsValid2(str);
+        //    const string str = "{[]}";
+        //    var result = IV.IsValid(str);
         //    Assert.AreEqual(true, result);
         //}
 
         //[TestMethod]
-        //public void.IsValid2TestMethod12()
+        //public void TestMethod5()
         //{
         //    var IV = new Problem20();
-        //    var TDGenerator = new UnitTest.TestData.Problem20TestDataGenerator();
-        //    var TestData = TDGenerator.GenerateArrayOfStrings(); // using this generated data, we can run it hundreds or thousands of times to discover edge cases.
-        //    var result = IV.IsValid2(TestData.AllStrings);
-        //    Assert.AreEqual(trueaaaaaaaaaaaaaaa", result);
+        //    const string str = "((";
+        //    var result = IV.IsValid(str);
+        //    Assert.AreEqual(false, result);
         //}
     }
 }
