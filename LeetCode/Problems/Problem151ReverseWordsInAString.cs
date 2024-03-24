@@ -83,7 +83,7 @@ namespace LeetCode.Problems
         public string ReverseWords(string s)
         {
             string result = "";
-            if (s.Length == 0) { return result; } // handle simplest case for perf
+            if (s.Length <= 2) { return s.Trim(); } // handle simplest case for perf
 
             s = s.Trim();
             string[] wordArray = new string[s.Length];
