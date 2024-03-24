@@ -38,6 +38,13 @@ namespace UnitTest
         [TestMethod]
         public void TestMethod1()
         {
+            /*
+             * x1 = 70 from b is bigger than 50 from a
+             * x2 = 150 from a - 50 + 100 = 150 is smaller than 170
+             * y1 = 50 is bigger than 20 so it's 50 from b
+             * y2 = 220 from b is smaller 50 + 200 from a is 250 and 20 + 200 from b is 220
+             * x2 150a >= x1 70b && y2 220b >= y1 50b
+             */
             var IV = new IntersectionOfRectangles();
             var val = GenerateTestData();
             var result = IV.FindPointsOfIntersectingSquares(val);
