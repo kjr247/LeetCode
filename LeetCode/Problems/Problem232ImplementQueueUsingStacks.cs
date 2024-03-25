@@ -59,7 +59,7 @@ Follow-up: Can you implement the queue such that each operation is amortized O(1
 
 /* 
  * Notes on Optimizations
- * 
+ * using a linked list would slikely help this in the case of memory performance because it doesn't need to totally duplicate every value.
  * */
 namespace LeetCode.Problems
 {
@@ -82,7 +82,7 @@ namespace LeetCode.Problems
         /* LeetCode 50 ms Better than 90% of Users with C# */
         /* LeetCode 42ish MB Better than 35% of Users with C# */
         /* Time Complexity: O(n) */
-        /* Space Complexity: O(n) increases linearly with the size of the input */
+        /* Space Complexity: O(2n) increases at double the size with the size of the input */
         /* Observations: the space is likely high because of all of the tostring calls. */
         [Time("File name Problem232ImplementQueueUsingStacks: input: ''")]
         public MyQueue ImplementQueueUsingStacks()
