@@ -28,7 +28,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 // O(n) on run time and O(1) on constant storage complexity
 namespace LeetCode.Problems
 {
-    public class Problem3
+    public class Problem13
     {
         // O(1) but it's possible to do this without putting this into memory and instead add a switch case with else if statements with a lookahead algorithm
         public static readonly Dictionary<char, int> RomanNumeralsMap = new Dictionary<char, int>
