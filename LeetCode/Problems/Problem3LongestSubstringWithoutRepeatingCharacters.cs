@@ -54,19 +54,20 @@ namespace LeetCode.Problems
     {
         public int LengthOfLongestSubstring(string s)
         {
-            var hash = new Dictionary<char, int>();
-            int max = 0;
-            int left = 0;
+            var hash = new Dictionary<char, int>(); // tracking with a hash/dictionary using asci numerical values for characters
+            int max = 0; // length of the longest substr
+            int left = 0; // track the left pointer
 
-            for (int right = 0; right < s.Length; right++)
+            for (int right = 0; right < s.Length; right++) // iterating and moving right pointer
             {
-                char rightChar = s[right];
-                if (hash.ContainsKey(rightChar))
+                char rightChar = s[right]; // get the right char
+                if (hash.ContainsKey(rightChar)) // check if exists in hash yet
                 {
-                    /*if the current character is already present in the dictionary then check the last occurance of the character in string */
+                    /* if the rightchar is already present in the tracking then check the last occurance of the character in string 
+                     * and move it up one ahead of that since it was a dupe we can skip all chars until here */
                     left = Math.Max(left, hash[rightChar] + 1);
                 }
-                hash[rightChar] = right; //keeps updating the character and position in dictionary
+                hash[rightChar] = right; // track the character and position now/after because if we did it before then it would throw off the checking
                 max = Math.Max(max, right - left + 1); //checking the longest substring
             }
             return max;
